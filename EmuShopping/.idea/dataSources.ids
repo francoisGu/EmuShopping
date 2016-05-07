@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Derby - emuShopping;create=true@localhost" uuid="7e2527cb-8cf1-49ec-9c82-deadf809f0bb">
+    <database-info product="Apache Derby" version="10.11.1.1 - (1616546)" jdbc-version="4.2" driver-name="Apache Derby Network Client JDBC Driver" driver-version="10.11.1.1 - (1616546)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <schema name="ADMIN" catalog=""/>
+    <schema name="APP" catalog=""/>
+    <table name="BUYER" schema="ADMIN" catalog="" type="TABLE">
+      <column name="BUYER_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="SQL151014111627830" columns="BUYER_ID"/>
+      <foreign-key name="FK_CUKXXYM9AN1L9UKQML60ROCEJ" columns="BUYER_ID" ref-table="USERS" ref-schema="ADMIN" ref-catalog="" ref-columns="USER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_D4STEMKX8LT0A14L4DM6YCI8K" table="ORDER_TABLE" schema="ADMIN" catalog="" columns="BUYER_ID"/>
+      <exported-key name="FK_5OM6Y4ASK3IC1QQKKMWTQMCSW" table="ORDER_TABLE" schema="ADMIN" catalog="" columns="BUYER"/>
+    </table>
+    <table name="ORDER_PRODUCT" schema="ADMIN" catalog="" type="TABLE">
+      <column name="ORDER_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ELT" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <foreign-key name="FK_TPT9PULQSN4AHVM8TCL8UYUE4" columns="ORDER_ID" ref-table="ORDER_TABLE" ref-schema="ADMIN" ref-catalog="" ref-columns="ORDER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_I3XYQNY5QR6COK5VHCUTK5COR" columns="ELT" ref-table="PRODUCT" ref-schema="ADMIN" ref-catalog="" ref-columns="PRODUCT_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="ORDER_TABLE" schema="ADMIN" catalog="" type="TABLE">
+      <column name="ORDER_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="STATUS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BUYER" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="BUYER_ID" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="SQL151014111627880" columns="ORDER_ID"/>
+      <foreign-key name="FK_D4STEMKX8LT0A14L4DM6YCI8K" columns="BUYER_ID" ref-table="BUYER" ref-schema="ADMIN" ref-catalog="" ref-columns="BUYER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_5OM6Y4ASK3IC1QQKKMWTQMCSW" columns="BUYER" ref-table="BUYER" ref-schema="ADMIN" ref-catalog="" ref-columns="BUYER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_TPT9PULQSN4AHVM8TCL8UYUE4" table="ORDER_PRODUCT" schema="ADMIN" catalog="" columns="ORDER_ID"/>
+    </table>
+    <table name="PRODUCT" schema="ADMIN" catalog="" type="TABLE">
+      <column name="PRODUCT_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="PRODUCT_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PRODUCT_PRICE" sqlType="DOUBLE" precision="52" scale="0" nullable="true" jdbcType="8"/>
+      <column name="QUANTITY" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="SQL151014111627910" columns="PRODUCT_ID"/>
+      <exported-key name="FK_I3XYQNY5QR6COK5VHCUTK5COR" table="ORDER_PRODUCT" schema="ADMIN" catalog="" columns="ELT"/>
+    </table>
+    <table name="SELLER" schema="ADMIN" catalog="" type="TABLE">
+      <column name="SELLER_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="SQL151014111627930" columns="SELLER_ID"/>
+      <foreign-key name="FK_LXFEVWNMXHHIBPW37ULQWYGEP" columns="SELLER_ID" ref-table="USERS" ref-schema="ADMIN" ref-catalog="" ref-columns="USER_ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="USERS" schema="ADMIN" catalog="" type="TABLE">
+      <column name="USER_ID" sqlType="INTEGER" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="USERNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="TYPE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SQL151014111627940" columns="USER_ID"/>
+      <exported-key name="FK_CUKXXYM9AN1L9UKQML60ROCEJ" table="BUYER" schema="ADMIN" catalog="" columns="BUYER_ID"/>
+      <exported-key name="FK_LXFEVWNMXHHIBPW37ULQWYGEP" table="SELLER" schema="ADMIN" catalog="" columns="SELLER_ID"/>
+      <index name="UK_DC4EQ7PLR20FDHQ528TWSAK1B" unique="true" columns="USERNAME"/>
+    </table>
+  </data-source>
+</component>

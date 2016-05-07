@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Derby - emuShopping;create=true@localhost" uuid="7e2527cb-8cf1-49ec-9c82-deadf809f0bb">
+      <secret-storage>memory</secret-storage>
+      <user-name>admin</user-name>
+      <schema-pattern>*.ADMIN *.APP</schema-pattern>
+      <default-schemas>*.ADMIN *.APP</default-schemas>
+    </data-source>
+  </component>
+</project>

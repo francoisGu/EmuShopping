@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="EmuShopping:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="EmuShopping.war">
+      <element id="artifact" artifact-name="EmuShopping:war exploded" />
+    </root>
+  </artifact>
+</component>

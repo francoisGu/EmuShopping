@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.litaos.model.Product" table="PRODUCT">
+        <meta attribute="class-description">
+            This class contains the product detail.
+        </meta>
+        <id name="productId" type="int" column="product_id">
+            <generator class="increment"/>
+        </id>
+        <property name="productName" column="product_name" type="string"/>
+        <property name="description" column="description" type="string"/>
+        <property name="productPrice" column="product_price" type="double"/>
+        <property name="quantity" column="quantity" type="int"/>
+
+    </class>
+</hibernate-mapping>

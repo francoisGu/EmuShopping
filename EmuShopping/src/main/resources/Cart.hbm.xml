@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.litaos.model.Cart" table="CART_TABLE">
+        <id name="cartId" type="int" column="cart_id">
+            <generator class="increment"/>
+        </id>
+
+        <!--<one-to-one name="buyer" class="com.litaos.model.Buyer">-->
+        <!--</one-to-one>-->
+
+        <bag name="productList" table="cart_product" cascade="all">
+            <key column="cart_id" />
+            <many-to-many class="com.litaos.model.Product" />
+        </bag>
+
+    </class>
+</hibernate-mapping>
